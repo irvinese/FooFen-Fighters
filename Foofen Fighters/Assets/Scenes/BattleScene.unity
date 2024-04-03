@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 167660527}
   - component: {fileID: 167660529}
   - component: {fileID: 167660528}
+  - component: {fileID: 167660530}
   m_Layer: 5
   m_Name: PlayerBattleHud
   m_TagString: Untagged
@@ -313,6 +314,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 167660526}
   m_CullTransparentMesh: 1
+--- !u!114 &167660530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167660526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a8a1eb74589fc4f8227234fda00d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 748406038}
+  levelText: {fileID: 1179794706}
+  hpSlider: {fileID: 335489935}
 --- !u!1 &209611266
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +460,7 @@ GameObject:
   - component: {fileID: 290466495}
   - component: {fileID: 290466497}
   - component: {fileID: 290466496}
+  - component: {fileID: 290466498}
   m_Layer: 5
   m_Name: EnemyBattleHud
   m_TagString: Untagged
@@ -511,6 +528,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290466494}
   m_CullTransparentMesh: 1
+--- !u!114 &290466498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290466494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82a8a1eb74589fc4f8227234fda00d8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 482965671}
+  levelText: {fileID: 1361991321}
+  hpSlider: {fileID: 1067337371}
 --- !u!1 &335489933
 GameObject:
   m_ObjectHideFlags: 0
@@ -1102,7 +1134,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 684103632}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1887571611}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: onHealButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &684103632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2223,7 +2267,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1484228566}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1887571611}
+        m_TargetAssemblyTypeName: BattleSystem, Assembly-CSharp
+        m_MethodName: onAttackButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1484228566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2633,6 +2689,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865755719}
   m_CullTransparentMesh: 1
+--- !u!1 &1887571610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1887571612}
+  - component: {fileID: 1887571611}
+  m_Layer: 0
+  m_Name: BattleSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1887571611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887571610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee56a651f818ff748bb6afdc874f75e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  state: 0
+  playerPrefab: {fileID: 8608763377892662747, guid: 09bc76fb3d0eaca4eb6000a2402ebc75, type: 3}
+  enemyPrefab: {fileID: 6623247288723304024, guid: 4f655c9a2c9a5fc4591b688cdf4ee760, type: 3}
+  playerBattleStation: {fileID: 0}
+  enemyBattleStation: {fileID: 0}
+  dialogueText: {fileID: 1758441756}
+  playerHUD: {fileID: 167660530}
+  enemyHUD: {fileID: 290466498}
+--- !u!4 &1887571612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887571610}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.4792979, y: 4.5556116, z: -0.10262443}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1914441020
 GameObject:
   m_ObjectHideFlags: 0
@@ -2713,6 +2821,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1248554637}
+  - {fileID: 1887571612}
   - {fileID: 1735901850}
   - {fileID: 361269618}
   - {fileID: 209611268}
